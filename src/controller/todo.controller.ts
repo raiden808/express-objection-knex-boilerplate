@@ -1,9 +1,14 @@
 
-const httpStatus = require('http-status');
-const catchAsync = require('../utils/catchAync');
+import status from 'http-status';
+import { catchAsync } from '../utils/catchAsync';
+const todoService = require('../services/todo.service')
 
 const add = catchAsync(async (req, res) => {
-    // const user = await userService.createUser(req.body);
+    const test = await todoService.create();
     // const tokens = await tokenService.generateAuthTokens(user);
-    res.status(httpStatus.CREATED).send({add:'todo' });
+    res.status(status.CREATED).send({ add: test });
 });
+
+export const todoController = {
+    add
+};
