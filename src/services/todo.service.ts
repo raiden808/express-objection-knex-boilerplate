@@ -1,8 +1,8 @@
-const create = async () => {
-    return 'test';
+const add = async (payload:string) => {
+    return payload;
 };
 
 
 export const todoServices = {
-    create,
+    add,
 }

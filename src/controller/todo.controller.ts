@@ -1,13 +1,13 @@
 
 import status from 'http-status';
 import { catchAsync } from '../utils/catchAsync';
-const todoService = require('../services/todo.service')
 import { Request, Response } from 'express';
+import { todoServices } from '../services/todo.service';
 
 const add = catchAsync(async (req:Request, res:Response) => {
-    const test = await todoService.create();
+    const test = await todoServices.add('test');
     // const tokens = await tokenService.generateAuthTokens(user);
-    res.status(status.CREATED).send({ add: test });
+    res.status(status.CREATED).send({ value: test });
 });
 
 export const todoController = {
