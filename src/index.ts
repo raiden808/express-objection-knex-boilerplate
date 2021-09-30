@@ -1,9 +1,10 @@
-const express = require('express')
+
+import express from "express";
+import todoRouter from  "./routes/todo.routes"
 const app = express()
 
-app.get('/', (req, res) => {
-    res.send('Hey, I\'m a Node.js app!')
-})
+
+app.use('todo',todoRouter);
 
 app.listen(3000, () => {
     console.log('Server is up on 3000')
