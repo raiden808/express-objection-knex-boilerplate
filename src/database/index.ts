@@ -1,7 +1,7 @@
-const { Model } = require('objection');
 const Knex = require('knex');
 const dotenv = require('dotenv');
 dotenv.config();
+
 
 // Initialize knex.
 export const knex = Knex({
