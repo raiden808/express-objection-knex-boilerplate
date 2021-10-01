@@ -1,4 +1,3 @@
-
 import express from "express";
 import allRoutes from "./routes";
 const app = express()
