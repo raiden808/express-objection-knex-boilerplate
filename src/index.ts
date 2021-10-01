@@ -2,6 +2,8 @@
 import express from "express";
 import allRoutes from "./routes";
 const app = express()
+const dotenv = require('dotenv');
+dotenv.config();
 
 
 app.use('/v1', allRoutes);

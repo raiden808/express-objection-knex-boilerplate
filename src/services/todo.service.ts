@@ -1,5 +1,12 @@
+import Todo from "../models/todo";
+
 const add = async (payload:string) => {
-    return payload;
+
+
+    return await Todo.query()
+    .where('name', 'testerman')
+    // .withGraphFetched('children')
+    .orderBy('id');;
 };
 
 
