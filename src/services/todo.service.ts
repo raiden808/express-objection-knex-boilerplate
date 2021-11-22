@@ -1,12 +1,9 @@
 import Todo from "../models/todo";
 
-const add = async (payload:string) => {
-
+const add = async (payload: any) => {
 
     return await Todo.query()
-    .where('name', 'testerman')
-    // .withGraphFetched('children')
-    .orderBy('id');;
+        .insert(payload);
 };
 
 
