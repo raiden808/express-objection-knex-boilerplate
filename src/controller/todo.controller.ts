@@ -6,12 +6,8 @@ import { todoServices } from '../services/todo.service';
 
 const add = catchAsync(async (req: Request, res: Response) => {
 
-    console.log('rquest body', req.body);
-
-    const test = await todoServices.add(req.body);
-
-    // const tokens = await tokenService.generateAuthTokens(user);
-    res.status(status.CREATED).send({ value: test });
+    const data = await todoServices.add(req.body);
+    res.status(status.CREATED).send({ message: data });
 });
 
 
