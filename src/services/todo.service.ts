@@ -9,7 +9,6 @@ import Todo from "../models/todo";
 
 
 const add = async (payload: any) => {
-
     try {
         const returnValue = await Todo.transaction(async trx => {
             // Here you can use the transaction.
@@ -17,7 +16,6 @@ const add = async (payload: any) => {
             const data = await Todo.query(trx).insert(
                 payload
             );
-
             // Whatever you return from the transaction callback gets returned
             // from the `transaction` function.
             return data;
