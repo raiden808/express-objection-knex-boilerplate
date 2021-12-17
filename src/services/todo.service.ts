@@ -30,6 +30,29 @@ const add = async (payload: any) => {
     }
 };
 
+const update = async (payload: any, id: number) => {
+    try {
+        const returnValue = await Todo.transaction(async trx => {
+            // Here you can use the transaction.
+
+            const data = await Todo.query(trx).update(
+                payload
+            ).where('id', id);
+            // Whatever you return from the transaction callback gets returned
+            // from the `transaction` function.
+            return data;
+        });
+
+        return returnValue
+        // Here the transaction has been committed.
+    } catch (err) {
+        console.log(err)
+        return err
+        // Here the transaction has been rolled back.
+    }
+};
+
 export const todoServices = {
     add,
+    update
 }
