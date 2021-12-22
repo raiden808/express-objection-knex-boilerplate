@@ -30,7 +30,7 @@ const add = async (payload: any) => {
     }
 };
 
-const update = async (payload: any, id: number) => {
+const update = async (id: number, payload: any) => {
     try {
         const returnValue = await Todo.transaction(async trx => {
             // Here you can use the transaction.

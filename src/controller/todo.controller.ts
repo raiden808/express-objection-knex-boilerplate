@@ -25,6 +25,15 @@ const add = catchAsync(async (req: Request, res: Response) => {
 
 const update = catchAsync(async (req: Request, res: Response) => {
 
+    // extract it here
+    // later on will be replace by as param instead
+    const payload = req.body;
+
+    const {id,...partials} = payload
+
+    console.log(id)
+    console.log(partials)
+
     // const todoValidation = v.validate(req.body, todoSchema)
     // const errors = todoValidation.errors.map(e => e.stack);
 
@@ -32,7 +41,7 @@ const update = catchAsync(async (req: Request, res: Response) => {
     //     res.status(status.BAD_REQUEST).send({ message: errors });
     // } else {
 
-    //     const data = await todoServices.add(req.body);
+    const data = await todoServices.update(id,req.body);
     //     res.status(status.CREATED).send({ message: data });
     // }
 
