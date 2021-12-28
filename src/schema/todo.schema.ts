@@ -1,10 +1,25 @@
-const todoSchema = {
+
+const properties = {
+    "id": { "type": "number" },
+    "name": { "type": "string" },
+    "task": { "type": "string" },
+}
+
+
+const add = {
     "type": "object",
-    "properties": {
-        "name": { "type": "string" },
-        "task": { "type": "string" }
-    },
+    properties,
+    "required": ["name", "task"]
+};
+
+const update = {
+    "type": "object",
+    properties,
+    "required": ["id"]
 };
 
 
-export default todoSchema;
+export const todoSchema =  {
+    add,
+    update
+};
