@@ -46,6 +46,12 @@ const update = catchAsync(async (req: Request, res: Response) => {
 
 });
 
+const find = catchAsync(async (req: Request, res: Response) => {
+
+    res.status(status.CREATED).send({ message: '' });
+
+});
+
 
 export const todoController = {
     add,
