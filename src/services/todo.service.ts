@@ -52,7 +52,12 @@ const update = async (id: number, payload: any) => {
     }
 };
 
+const findAll = async () => {
+    return await Todo.query().select();
+}
+
 export const todoServices = {
     add,
-    update
+    update,
+    findAll
 }

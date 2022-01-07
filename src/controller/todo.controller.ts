@@ -48,12 +48,15 @@ const update = catchAsync(async (req: Request, res: Response) => {
 
 const find = catchAsync(async (req: Request, res: Response) => {
 
-    res.status(status.CREATED).send({ message: '' });
+    const data = await todoServices.findAll();
+
+    res.status(status.CREATED).send({ message: data });
 
 });
 
 
 export const todoController = {
     add,
-    update
+    update,
+    find
 };
