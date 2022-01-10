@@ -52,8 +52,20 @@ const update = async (id: number, payload: any) => {
     }
 };
 
-const findAll = async () => {
-    return await Todo.query().select();
+const findAll = async (pagination: any) => {
+
+    // Get total Count Here
+    const { take, skip } = pagination;
+
+    const query = Todo.query().select() as any;
+
+    const [total,data] = await Promise.all([
+        query.resultSize(),
+        query.offset(skip).limit(take)
+    ]);
+
+    return {take,skip,total,data}
+
 }
 
 export const todoServices = {

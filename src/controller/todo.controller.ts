@@ -48,9 +48,9 @@ const update = catchAsync(async (req: Request, res: Response) => {
 
 const find = catchAsync(async (req: Request, res: Response) => {
 
-    const data = await todoServices.findAll();
+    const data = await todoServices.findAll(req.query);
 
-    res.status(status.CREATED).send({ message: data });
+    res.status(status.CREATED).send(data);
 
 });
 
