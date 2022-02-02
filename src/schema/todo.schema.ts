@@ -1,15 +1,15 @@
 
 const properties = {
     "id": { "type": "number" },
-    "name": { "type": "string" },
     "task": { "type": "string" },
+    "status": {"type": "string"}
 }
 
 
 const add = {
     "type": "object",
     properties,
-    "required": ["name", "task"]
+    "required": ["task", "status"]
 };
 
 const update = {
