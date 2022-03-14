@@ -30,9 +30,6 @@ const update = catchAsync(async (req: Request, res: Response) => {
 
     const { id, ...partials } = payload
 
-    console.log(id)
-    console.log(partials)
-
     const todoValidation = v.validate(req.body, todoSchema.update)
     const errors = todoValidation.errors.map(e => e.stack);
 
@@ -40,8 +37,8 @@ const update = catchAsync(async (req: Request, res: Response) => {
         res.status(status.BAD_REQUEST).send({ message: errors });
     } else {
 
-        const data = await todoServices.update(id, req.body);
-        res.status(status.CREATED).send({ message: data });
+        const data = await todoServices.update(id, {id:id, ...partials});
+        res.status(status.CREATED).send({ message: payload });
     }
 
 });
