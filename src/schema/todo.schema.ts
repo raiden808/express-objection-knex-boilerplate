@@ -1,7 +1,8 @@
 
 const properties = {
     "id": { "type": "number" },
-    "task": { "type": "string" },
+    "title": { "type": "string" },
+    "details": { "type": "string" },
     "status": {"type": "string"}
 }
 
@@ -9,7 +10,7 @@ const properties = {
 const add = {
     "type": "object",
     properties,
-    "required": ["task", "status"]
+    "required": ["title","details", "status"]
 };
 
 const update = {
